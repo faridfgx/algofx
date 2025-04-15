@@ -4,333 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlgoFX - IDE pour Algorithmes en Français</title>
-    <style>
-        :root {
-            --primary-color: #007ACC;
-            --secondary-color: #1E1E1E;
-            --accent-color: #3E3E42;
-            --text-color: #DCDCDC;
-            --light-text-color: #FFFFFF;
-            --border-color: #3E3E40;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .logo {
-            width: 100px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 2rem 0;
-            gap: 2rem;
-        }
-        
-        .hero-content {
-            flex: 1;
-        }
-        
-        .hero-image {
-            flex: 1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .feature {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .download-section {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            padding: 3rem 0;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        
-        .download-options {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .download-option {
-            background-color: var(--accent-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            flex: 1;
-            max-width: 300px;
-            min-width: 250px;
-        }
-        
-        .download-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease;
-        }
-        
-        .download-button:hover {
-            background-color: #0056b3;
-        }
-        
-        .system-req {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        .screenshots {
-            margin: 3rem 0;
-        }
-        
-        .screenshots h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        
-        .screenshot {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .documentation {
-            background-color: #fff;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            margin: 3rem 0;
-        }
-        
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1rem 0;
-        }
-        
-        .footer-links a {
-            color: var(--text-color);
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-            }
-            
-            .download-options {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="imgs/fxlogo.png" alt="AlgoFX Logo" class="logo">
-            <h1>AlgoFX</h1>
-            <p>Un environnement de développement intégré pour l'apprentissage des algorithmes en français</p>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="imgs/fxlogo.png" alt="AlgoFX Logo" class="nav-logo">
+                <h1 class="nav-title">AlgoFX</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><a href="#download">Télécharger</a></li>
+                <li><a href="#screenshots">Captures d'écran</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-    </header>
+    </nav>
+
+
+<div class="hero-header">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">AlgoFX</h1>
+            <p class="hero-subtitle">Un environnement d'apprentissage des algorithmes en français</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn btn-primary">Télécharger maintenant</a>
+                <a href="#documentation" class="btn btn-secondary">Voir la documentation</a>
+            </div>
+        </div>
+    </div>
+<div class="hero-separator"></div>
+</div>
     
     <main>
-        <section class="container hero">
-            <div class="hero-content">
+        <section class="container intro-section">
+            <div class="intro-content">
                 <h2>Apprenez les bases de l'algorithmique avec AlgoFX</h2>
                 <p>AlgoFX est un IDE conçu pour faciliter l'apprentissage et l'enseignement des concepts fondamentaux de l'algorithmique. Avec une syntaxe en français et une interface intuitive, il est parfait pour les débutants et les enseignants.</p>
                 <p>Testez, compilez et exécutez vos algorithmes en temps réel avec un feedback instantané.</p>
-                <a href="#download" class="download-button">Télécharger</a>
             </div>
-            <div class="hero-image">
-                <img src="imgs/writecode.jpg" alt="AlgoFX Screenshot">
+            <div class="intro-image">
+                <img src="imgs/writecode.jpg" alt="AlgoFX Screenshot" class="shadow-img">
             </div>
         </section>
         
-        <section class="container features">
-            <div class="feature">
-                <div class="feature-icon">1</div>
-                <h3>Syntaxe en français</h3>
-                <p>Écrivez des algorithmes en utilisant une syntaxe claire et intuitive en français, idéale pour l'apprentissage des concepts algorithmiques sans les barrières de la langue.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">2</div>
-                <h3>Éditeur avec coloration syntaxique</h3>
-                <p>Profitez d'un éditeur de code moderne avec numérotation des lignes et coloration syntaxique pour faciliter l'écriture et la lecture des algorithmes.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">3</div>
-                <h3>Compilation en Python</h3>
-                <p>Visualisez la traduction de vos algorithmes en code Python pour comprendre la correspondance entre l'algorithmique et la programmation réelle.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">4</div>
-                <h3>Modèles prêts à l'emploi</h3>
-                <p>Commencez rapidement avec une bibliothèque de modèles d'algorithmes pour les problèmes courants: calcul de moyennes, PGCD, équations, conversions binaires, etc.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">5</div>
-                <h3>Mode sombre</h3>
-                <p>Travaillez confortablement dans toutes les conditions d'éclairage grâce au mode sombre intégré et personnalisable.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">6</div>
-                <h3>Interface intuitive</h3>
-                <p>Accédez facilement aux fonctions essentielles grâce à une interface claire avec des boutons rapides pour insérer des structures algorithmiques.</p>
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="section-title">Fonctionnalités principales</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Syntaxe en français</h3>
+                        <p>Écrivez des algorithmes en utilisant une syntaxe claire et intuitive en français, idéale pour l'apprentissage des concepts algorithmiques sans les barrières de la langue.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Éditeur avec coloration syntaxique</h3>
+                        <p>Profitez d'un éditeur de code moderne avec numérotation des lignes et coloration syntaxique pour faciliter l'écriture et la lecture des algorithmes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Compilation en Python</h3>
+                        <p>Visualisez la traduction de vos algorithmes en code Python pour comprendre la correspondance entre l'algorithmique et la programmation réelle.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <h3>Modèles prêts à l'emploi</h3>
+                        <p>Commencez rapidement avec une bibliothèque de modèles d'algorithmes pour les problèmes courants: calcul de moyennes, PGCD, équations, conversions binaires, etc.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3>Mode sombre</h3>
+                        <p>Travaillez confortablement dans toutes les conditions d'éclairage grâce au mode sombre intégré et personnalisable.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Interface intuitive</h3>
+                        <p>Accédez facilement aux fonctions essentielles grâce à une interface claire avec des boutons rapides pour insérer des structures algorithmiques.</p>
+                    </div>
+                </div>
             </div>
         </section>
         
         <section id="download" class="download-section">
             <div class="container">
-                <h2>Télécharger AlgoFX</h2>
-                <p>Version actuelle: 1.1.0 </p>
+                <h2 class="section-title light">Télécharger AlgoFX</h2>
+                <p class="version-info">Version actuelle: 1.1.0</p>
                 
-                <div class="download-options">
-                    <div class="download-option">
-                        <h3>Windows</h3>
-                        <p>Fichier Zip pour Windows 8/8.1/10/11</p>
-                        <a href="https://www.mediafire.com/file/gu70ckfxtyfeyan/AlgoFX.zip/file" class="download-button">Télécharger (.zip)</a>
-                        <div class="system-req">Windows 8 ou plus récent<br>2 Go RAM minimum</div>
+                <div class="download-cards">
+				
+				
+				
+				    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3>Windows 8/10/11</h3>
+                        <p>Installer pour installation complète</p>
+                        <a href="https://www.mediafire.com/file/mh9elys7oxx48my/AlgoFXsetup.exe/file" class="btn btn-download">
+                            <i class="fas fa-download"></i> Télécharger (.exe)
+                        </a>
+                        <div class="system-req">
+                            <p><i class="fas fa-microchip"></i> Windows 8 ou plus récent</p>
+                            <p><i class="fas fa-memory"></i> 2 Go RAM minimum</p>
+                        </div>
                     </div>
-                    <div class="download-option">
-                        <h3>Windows</h3>
-                        <p>Fichier Zip pour Windows 7  </p>
-                        <p>Pas encore disponible, il sera prêt dans quelques jours.</p>
-                        <div class="system-req">Windows 7 <br>2 Go RAM minimum</div>
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3>Windows 8/10/11</h3>
+                        <p>Fichier Zip pour installation portable</p>
+                        <a href="https://www.mediafire.com/file/gu70ckfxtyfeyan/AlgoFX.zip/file" class="btn btn-download">
+                            <i class="fas fa-download"></i> Télécharger (.zip)
+                        </a>
+                        <div class="system-req">
+                            <p><i class="fas fa-microchip"></i> Windows 8 ou plus récent</p>
+                            <p><i class="fas fa-memory"></i> 2 Go RAM minimum</p>
+                        </div>
                     </div>
-                    <div class="download-option">
-                        <h3>Windows</h3>
-                        <p>Installer pour Windows 8/8.1/10/11 </p>
-                        <a href="https://www.mediafire.com/file/mh9elys7oxx48my/AlgoFXsetup.exe/file" class="download-button">Télécharger (.exe)</a>
-                        <div class="system-req">Windows 8 ou plus récent<br>2 Go RAM minimum</div>
+                    
+                    <div class="download-card disabled">
+                        <div class="download-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3>Windows 7</h3>
+                        <p>Fichier Zip pour Windows 7</p>
+                        <span class="coming-soon">Bientôt disponible</span>
+                        <div class="system-req">
+                            <p><i class="fas fa-microchip"></i> Windows 7</p>
+                            <p><i class="fas fa-memory"></i> 2 Go RAM minimum</p>
+                        </div>
                     </div>
                     
 
                 </div>
                 
-                <div style="margin-top: 2rem;">
+                <div class="source-code">
                     <h3>Code source</h3>
                     <p>Le code source est disponible sur GitHub</p>
-                    <a href="https://github.com/faridfgx/algofx" class="download-button">Voir sur GitHub</a>
+                    <a href="https://github.com/faridfgx/algofx" class="btn btn-github">
+                        <i class="fab fa-github"></i> Voir sur GitHub
+                    </a>
                 </div>
             </div>
         </section>
         
-        <section class="container screenshots">
-            <h2>Captures d'écran</h2>
-            <div class="screenshot-grid">
-                <div class="screenshot">
-                    <img src="imgs/main.jpg" alt="Interface principale">
+        <section id="screenshots" class="container screenshots-section">
+            <h2 class="section-title">Captures d'écran</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="imgs/main.jpg" alt="Interface principale" class="shadow-img">
+                    <p class="screenshot-caption">Interface principale</p>
                 </div>
-                <div class="screenshot">
-                    <img src="imgs/writecode.jpg" alt="Mode sombre">
+                <div class="screenshot-item">
+                    <img src="imgs/writecode.jpg" alt="Mode sombre" class="shadow-img">
+                    <p class="screenshot-caption">Édition de code</p>
                 </div>
-                <div class="screenshot">
-                    <img src="imgs/easydatainput.jpg" alt="Exécution d'algorithme">
+                <div class="screenshot-item">
+                    <img src="imgs/easydatainput.jpg" alt="Exécution d'algorithme" class="shadow-img">
+                    <p class="screenshot-caption">Saisie de données simplifiée</p>
                 </div>
-                <div class="screenshot">
-                    <img src="imgs/manyworkingtemplates.jpg" alt="Modèles d'algorithmes">
+                <div class="screenshot-item">
+                    <img src="imgs/manyworkingtemplates.jpg" alt="Modèles d'algorithmes" class="shadow-img">
+                    <p class="screenshot-caption">Modèles d'algorithmes</p>
                 </div>
             </div>
         </section>
         
-        <section class="container documentation">
-
-            
-            <h3>Syntaxe de base</h3>
-            <pre style="background-color: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;">
-Algorithme EquationSecondDegre;
+        <section id="documentation" class="documentation-section">
+            <div class="container">
+                <h2 class="section-title">Documentation</h2>
+                <div class="doc-content">
+                    <h3>Syntaxe de base</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Résolution d'équation du second degré</span>
+                            <button class="copy-btn" title="Copier le code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre class="code-example">Algorithme EquationSecondDegre;
 Var
     a, b, c, delta, x1, x2: Reel;
 Debut
@@ -374,16 +248,58 @@ Debut
             finsi
         finsi
     finsi
-Fin
-</pre>
+Fin</pre>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Farid Mezane AlgoFX - Un IDE pour l'apprentissage des algorithmes</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="imgs/fxlogo.png" alt="AlgoFX Logo" class="footer-img">
+                    <h3>AlgoFX</h3>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#download">Télécharger</a></li>
+                        <li><a href="#screenshots">Captures d'écran</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i>faridmezane@gmail.com</p>
+                    <div class="social-links">
+					
+                        <a href="https://faridfgx.github.io" title="GitHub"><i class="fab fa-github"></i></a>
 
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Farid Mezane AlgoFX - Un IDE pour l'apprentissage des algorithmes</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Simple toggle for mobile navigation
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Copy code functionality
+        document.querySelector('.copy-btn').addEventListener('click', function() {
+            const codeText = document.querySelector('.code-example').textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert('Code copié !');
+            });
+        });
+    </script>
 </body>
 </html>
