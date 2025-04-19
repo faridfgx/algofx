@@ -21,7 +21,7 @@
                 <li><a href="#features">Fonctionnalités</a></li>
                 <li><a href="#download">Télécharger</a></li>
                 <li><a href="#screenshots">Captures d'écran</a></li>
-                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="guide.html">Documentation</a></li>
             </ul>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -37,7 +37,7 @@
             <p class="hero-subtitle">Un environnement d'apprentissage des algorithmes en français</p>
             <div class="hero-buttons">
                 <a href="#download" class="btn btn-primary">Télécharger maintenant</a>
-                <a href="#documentation" class="btn btn-secondary">Voir la documentation</a>
+                <a href="guide.html" class="btn btn-secondary">Voir la documentation</a>
             </div>
         </div>
     </div>
@@ -144,17 +144,15 @@
                         </div>
                     </div>
                     
-                    <div class="download-card">
+                    <div class="download-card disabled">
                         <div class="download-icon">
                             <i class="fab fa-windows"></i>
                         </div>
                         <h3>Windows 7</h3>
-                        <p>Installer pour installation complète win 7</p>
-                        <a href="https://www.mediafire.com/file/ozm6lvsc1aoa06z/AlgoFXwin7setup.exe/file" class="btn btn-download">
-                            <i class="fas fa-download"></i> Télécharger (.exe)
-                        </a>
+                        <p>Fichier Zip pour Windows 7</p>
+                        <span class="coming-soon">Bientôt disponible</span>
                         <div class="system-req">
-                            <p><i class="fas fa-microchip"></i> Windows 7 </p>
+                            <p><i class="fas fa-microchip"></i> Windows 7</p>
                             <p><i class="fas fa-memory"></i> 2 Go RAM minimum</p>
                         </div>
                     </div>
@@ -194,67 +192,7 @@
             </div>
         </section>
         
-        <section id="documentation" class="documentation-section">
-            <div class="container">
-                <h2 class="section-title">Documentation</h2>
-                <div class="doc-content">
-                    <h3>Syntaxe de base</h3>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Résolution d'équation du second degré</span>
-                            <button class="copy-btn" title="Copier le code">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        <pre class="code-example">Algorithme EquationSecondDegre;
-Var
-    a, b, c, delta, x1, x2: Reel;
-Debut
-    // Algorithme qui résout une équation du second degré de la forme ax² + bx + c = 0
-    // en calculant le discriminant delta et traitant tous les cas possibles
-    ecrire("Résolution de l'équation ax² + bx + c = 0");
-    ecrire("Entrez la valeur de a:");
-    lire(a);
-    ecrire("Entrez la valeur de b:");
-    lire(b);
-    ecrire("Entrez la valeur de c:");
-    lire(c);
 
-    si a == 0 alors
-        // L'équation devient une équation du premier degré: bx + c = 0
-        si b == 0 alors
-            si c == 0 alors
-                ecrire("L'équation admet une infinité de solutions");
-            sinon
-                ecrire("L'équation n'admet pas de solution");
-            finsi
-        sinon
-            x1 <- -c / b;
-            ecrire("L'équation est du premier degré, la solution est x =", x1);
-        finsi
-    sinon
-        delta <- b * b - 4 * a * c;
-
-        si delta < 0 alors
-            ecrire("L'équation n'admet pas de solution réelle");
-        sinon
-            si delta == 0 alors
-                x1 <- -b / (2 * a);
-                ecrire("L'équation admet une solution double: x =", x1);
-            sinon
-                x1 <- (-b - racine(delta)) / (2 * a);
-                x2 <- (-b + racine(delta)) / (2 * a);
-                ecrire("L'équation admet deux solutions:");
-                ecrire("x1 =", x1);
-                ecrire("x2 =", x2);
-            finsi
-        finsi
-    finsi
-Fin</pre>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
     
     <footer class="site-footer">
@@ -270,7 +208,7 @@ Fin</pre>
                         <li><a href="#features">Fonctionnalités</a></li>
                         <li><a href="#download">Télécharger</a></li>
                         <li><a href="#screenshots">Captures d'écran</a></li>
-                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="guide.html">Documentation</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -278,7 +216,7 @@ Fin</pre>
                     <p><i class="fas fa-envelope"></i>faridmezane@gmail.com</p>
                     <div class="social-links">
 					
-                        <a href="https://faridfgx.github.io" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/faridfgx" title="GitHub"><i class="fab fa-github"></i></a>
 
                     </div>
                 </div>

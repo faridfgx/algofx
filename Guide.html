@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide d'Algorithmes en AlgoFX</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        code {
+            background-color: #f8f8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        .example {
+            background-color: #f1f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #16a085;
+        }
+        .note {
+            background-color: #fffacd;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #f39c12;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guide d'Algorithmes en AlgoFX</h1>
+    
+    <h2>Structure de Base d'un Algorithme</h2>
+    <p>Tout algorithme suit une structure standard composée de trois parties principales :</p>
+    <pre>
+Algorithme NomAlgorithme;
+Var
+    // Déclarations de variables
+    nom: Type;
+    a, b, c: entier;  // Déclaration multiple
+Const
+    p=3.1415; // Déclaration des constantes
+Debut
+    // Instructions
+Fin</pre>
+
+    <h2>Types de Données</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Exemples</th>
+        </tr>
+        <tr>
+            <td>entier</td>
+            <td>Nombres entiers</td>
+            <td>42, -10, 0</td>
+        </tr>
+        <tr>
+            <td>reel</td>
+            <td>Nombres à virgule flottante</td>
+            <td>3.14, -0.5, 2.0</td>
+        </tr>
+        <tr>
+            <td>chaine de caractere</td>
+            <td>Texte entre guillemets</td>
+            <td>"Bonjour", "2023", ""</td>
+        </tr>
+        <tr>
+            <td>caractere</td>
+            <td>Un seul caractère</td>
+            <td>"a", "5", "!"</td>
+        </tr>
+        <tr>
+            <td>booleen</td>
+            <td>Valeur logique</td>
+            <td>vrai, faux</td>
+        </tr>
+    </table>
+
+    <h2>Variables et Constantes</h2>
+    
+    <h3>Déclaration de Variables</h3>
+    <pre>
+var
+    age: entier;
+    nom: chaine;
+    a, b, c: entier;  // Déclaration multiple
+    estValide: booleen;</pre>
+    
+    <h3>Déclaration de Constantes</h3>
+    <pre>
+const
+    PI = 3.14159;
+    TAUX_TVA = 20.0;
+    MESSAGE_BIENVENUE = "Bonjour !";</pre>
+
+    <h2>Opérations et Expressions</h2>
+    
+    <h3>Opérateurs Arithmétiques</h3>
+    <table>
+        <tr>
+            <th>Opérateur</th>
+            <th>Description</th>
+            <th>Exemple</th>
+        </tr>
+        <tr>
+            <td>+</td>
+            <td>Addition</td>
+            <td>a + b</td>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Soustraction</td>
+            <td>a - b</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>Multiplication</td>
+            <td>a * b</td>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>Division</td>
+            <td>a / b</td>
+        </tr>
+        <tr>
+            <td>mod</td>
+            <td>Modulo (reste de division)</td>
+            <td>a mod b</td>
+        </tr>
+        <tr>
+            <td>div</td>
+            <td>Division entière</td>
+            <td>a div b</td>
+        </tr>
+        <tr>
+            <td>Puissance</td>
+            <td>puissance</td>
+            <td>a puissance b</td>
+        </tr>
+    </table>
+    
+    <h3>Opérateurs Relationnels</h3>
+    <table>
+        <tr>
+            <th>Opérateur</th>
+            <th>Description</th>
+            <th>Exemple</th>
+        </tr>
+        <tr>
+            <td>==</td>
+            <td>Égal à</td>
+            <td>a == b</td>
+        </tr>
+        <tr>
+            <td>&lt;&gt; ou !=</td>
+            <td>Différent de</td>
+            <td>a &lt;&gt; b</td>
+        </tr>
+        <tr>
+            <td>&lt;</td>
+            <td>Inférieur à</td>
+            <td>a &lt; b</td>
+        </tr>
+        <tr>
+            <td>&gt;</td>
+            <td>Supérieur à</td>
+            <td>a &gt; b</td>
+        </tr>
+        <tr>
+            <td>&lt;=</td>
+            <td>Inférieur ou égal à</td>
+            <td>a &lt;= b</td>
+        </tr>
+        <tr>
+            <td>&gt;=</td>
+            <td>Supérieur ou égal à</td>
+            <td>a &gt;= b</td>
+        </tr>
+    </table>
+    
+    <h3>Opérateurs Logiques</h3>
+    <table>
+        <tr>
+            <th>Opérateur</th>
+            <th>Description</th>
+            <th>Exemple</th>
+        </tr>
+        <tr>
+            <td>et</td>
+            <td>ET logique</td>
+            <td>(a &gt; 0) et (b &lt; 10)</td>
+        </tr>
+        <tr>
+            <td>ou</td>
+            <td>OU logique</td>
+            <td>(a == 0) ou (b == 0)</td>
+        </tr>
+        <tr>
+            <td>non</td>
+            <td>NON logique</td>
+            <td>non(a == b)</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        <strong>Note sur la priorité des opérations :</strong> parenthèses, puis puissance, puis multiplication/division, puis addition/soustraction.
+    </div>
+
+    <h2>Instructions de Base</h2>
+    
+    <h3>Affectation</h3>
+    <pre>variable &lt;- valeur;</pre>
+    <p>Exemple : <code>somme &lt;- a + b;</code></p>
+    
+    <h3>Lecture (Entrée)</h3>
+    <pre>
+lire(variable);
+lire(a, b, c);  // Lecture multiple</pre>
+    
+    <h3>Écriture (Sortie)</h3>
+    <pre>
+ecrire("Texte");
+ecrire(a, b, "Résultat:", resultat);  // Sortie multiple</pre>
+
+    <h2>Structures de Contrôle</h2>
+    
+    <h3>Condition Simple</h3>
+    <pre>
+si condition alors
+    instructions
+finsi</pre>
+    
+    <h3>Condition avec Alternative</h3>
+    <pre>
+si condition alors
+    instructions1
+sinon
+    instructions2
+finsi</pre>
+    
+    <h3>Conditions Imbriquées</h3>
+    <pre>
+si condition1 alors
+    instructions1
+sinon
+    si condition2 alors
+        instructions2
+    sinon
+        instructions3
+    finsi
+finsi</pre>
+    
+    <h3>Boucle TANT QUE</h3>
+    <pre>
+tantque condition faire
+    instructions
+fintantque</pre>
+    
+    <h3>Boucle POUR</h3>
+    <pre>
+pour variable de valeur1 a valeur2 faire
+    instructions
+finpour
+
+// Avec un pas spécifique
+pour variable de valeur1 a valeur2 pas n faire
+    instructions
+finpour</pre>
+
+    <h3>Instruction SORTIR</h3>
+    <p>Permet de sortir d'une boucle prématurément :</p>
+    <pre>
+tantque condition faire
+    si autreCondition alors
+        sortir;  // Quitte la boucle
+    finsi
+    instructions
+fintantque</pre>
+
+    <h2>Fonctions Mathématiques</h2>
+    <ul>
+        <li><code>racine(x)</code> : Calcule la racine carrée de x</li>
+        <li><code>puissance</code> : Opérateur puissance (ex: 2 puissance 3 = 8)</li>
+        <li><code>mod</code> : Opérateur modulo (reste de la division)</li>
+        <li><code>div</code> : Division entière</li>
+    </ul>
+
+    <h2>Exemples Complets</h2>
+    
+    <div class="example">
+        <h3>Exemple 1 : Calcul de factorielle</h3>
+        <pre>
+Algorithme Factoriel;
+Var
+    n, fact, i: entier;
+Debut
+    ecrire("Entrez un nombre pour calculer sa factorielle:");
+    lire(n);
+    
+    fact &lt;- 1;
+    
+    pour i de 1 a n faire
+        fact &lt;- fact * i;
+    finpour
+    
+    ecrire("La factorielle de", n, "est", fact);
+Fin</pre>
+    </div>
+    
+    <div class="example">
+        <h3>Exemple 2 : Vérification d'un palindrome</h3>
+        <pre>
+Algorithme VerificationPalindrome;
+Var
+    nombre, copie, inverse, chiffre: entier;
+Debut
+    ecrire("Entrez un nombre:");
+    lire(nombre);
+    
+    copie &lt;- nombre;
+    inverse &lt;- 0;
+    
+    tantque copie > 0 faire
+        chiffre &lt;- copie mod 10;
+        inverse &lt;- inverse * 10 + chiffre;
+        copie &lt;- copie div 10;
+    fintantque
+    
+    si nombre == inverse alors
+        ecrire(nombre, "est un palindrome");
+    sinon
+        ecrire(nombre, "n'est pas un palindrome");
+    finsi
+Fin</pre>
+    </div>
+    
+    <div class="example">
+        <h3>Exemple 3 : Conversion de température</h3>
+        <pre>
+Algorithme ConversionTemperature;
+Var
+    choix: entier;
+    celsius, fahrenheit: reel;
+Debut
+    ecrire("Conversion de température");
+    ecrire("1- Celsius vers Fahrenheit");
+    ecrire("2- Fahrenheit vers Celsius");
+    ecrire("Entrez votre choix (1 ou 2):");
+    
+    lire(choix);
+    
+    si choix == 1 alors
+        ecrire("Entrez la température en Celsius:");
+        lire(celsius);
+        fahrenheit &lt;- (celsius * 9/5) + 32;
+        ecrire(celsius, "°C équivaut à", fahrenheit, "°F");
+    sinon
+        si choix == 2 alors
+            ecrire("Entrez la température en Fahrenheit:");
+            lire(fahrenheit);
+            celsius &lt;- (fahrenheit - 32) * 5/9;
+            ecrire(fahrenheit, "°F équivaut à", celsius, "°C");
+        sinon
+            ecrire("Choix invalide");
+        finsi
+    finsi
+Fin</pre>
+    </div>
+    
+    <div class="example">
+        <h3>Exemple 4 : Suite de Fibonacci</h3>
+        <pre>
+Algorithme SuiteFibonacci;
+Var
+    n, i, a, b, c: entier;
+Debut
+    ecrire("Combien de termes de la suite de Fibonacci voulez-vous?");
+    lire(n);
+    
+    ecrire("Suite de Fibonacci:");
+    
+    si n >= 1 alors
+        ecrire(0);
+    finsi
+    
+    si n >= 2 alors
+        ecrire(1);
+    finsi
+    
+    a &lt;- 0;
+    b &lt;- 1;
+    
+    pour i de 3 a n faire
+        c &lt;- a + b;
+        ecrire(c);
+        a &lt;- b;
+        b &lt;- c;
+    finpour
+Fin</pre>
+    </div>
+    
+    <div class="example">
+        <h3>Exemple 5 : Nombres premiers</h3>
+        <pre>
+Algorithme NombresPremiers;
+var
+    n, i, j, temp: entier;
+    estPremier: booleen;
+debut
+    ecrire("Entrez la limite N:");
+    lire(n);
+    
+    ecrire("Nombres premiers jusqu'à", n, ":");
+    
+    pour i de 2 a n faire
+        estPremier &lt;- vrai;
+        
+        pour j de 2 a i-1 faire
+            temp &lt;- i mod j;
+            si temp == 0 alors
+                estPremier &lt;- faux;
+                sortir;
+            finsi
+        finpour
+        
+        si estPremier == vrai alors
+            ecrire(i);
+        finsi
+    finpour
+Fin</pre>
+    </div>
+
+    <h2>Bonnes Pratiques</h2>
+    <ul>
+        <li>Utilisez des noms de variables descriptifs.</li>
+        <li>Indentez correctement votre code pour améliorer la lisibilité.</li>
+        <li>Ajoutez des commentaires pour expliquer la logique complexe.</li>
+        <li>Décomposez les problèmes complexes en étapes plus simples.</li>
+        <li>Testez votre algorithme avec différents cas d'entrée.</li>
+        <li>Utilisez des constantes pour les valeurs qui ne changent pas.</li>
+    </ul>
+
+    <div class="note">
+        <strong>Note importante :</strong> Cette syntaxe d'algorithme est un pseudocode en français utilisé principalement à des fins pédagogiques. Elle n'est pas directement exécutable sur un ordinateur sans être traduite dans un langage de programmation comme Python, Java, C++, etc. Toutefois, vous pouvez utiliser AlgoFX pour exécuter ces algorithmes à des fins d’apprentissage uniquement.
+    </div>
+    
+    <footer style="margin-top: 50px; text-align: center; color: #7f8c8d; font-size: 0.9em;">
+        &copy; 2025 Guide d'Algorithmes en Français
+    </footer>
+</body>
+</html>
