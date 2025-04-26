@@ -2,7 +2,9 @@ import sys
 from io import StringIO
 import queue
 from PyQt5.QtWidgets import QDialog
-from input_dialog import InputDialog
+from PyQt5.QtCore import QSettings
+
+# Using the InputDialog class defined above
 
 class PyQtInputFixer:
     @staticmethod

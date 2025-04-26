@@ -1,7 +1,23 @@
 
 {
-  "version": "1.1.0",
-  "download_url": "https://www.mediafire.com/file/gu70ckfxtyfeyan/AlgoFX.zip/file",
-  "release_date": "2025-04-14",
-  "notes": "Version 1.1.0"
+  "version": "1.3.0",
+  "download_url": "https://www.mediafire.com/file/kr2o4kv2ze1j800/AlgoFX1_3_0setup.exe/file",
+  "release_date": "2025-04-25",
+  "notes": [
+    "Correction d’un problème où AlgoFX se fermait de manière inattendue lors de l’édition du code avec l'autocomplétion activée.",
+    "Amélioration des capacités de détection des erreurs de syntaxe.",
+    "Ajout d’un nouveau bouton « Corriger l’indentation » dans la barre d’outils pour formater automatiquement votre code pour une meilleure lisibilité.",
+    "Correction d’un bug empêchant la compilation correcte du code lorsqu’on utilisait « fin » au lieu de « Fin ».",
+    "Nouvelles options disponibles : vous pouvez désormais choisir le français ou l’arabe pour la détection des erreurs de syntaxe avec une fenêtre améliorée.",
+    "Amélioration de l’extraction du nom de l’algorithme, même en l’absence d’un point-virgule (« ; ») après le nom.",
+    "Mise à jour du site Web pour indiquer clairement que Python et la variable d’environnement PATH sont requis pour exécuter l’option console avant le téléchargement.",
+    "Correction d’un avertissement de dépréciation lié à l’écran de démarrage.",
+    "Amélioration du mécanisme de persistance de la taille de la fenêtre.",
+    "Résolution de problèmes mineurs et amélioration du style des thèmes clair/sombre.",
+    "Mise à jour de la coloration syntaxique pour une meilleure lisibilité et un style plus clair.",
+    "Les boutons d’insertion de fragments de code ont été mis à jour avec un nouveau style amélioré.",
+    "Correction d’un bug où les opérations div et mod ne fonctionnaient pas correctement dans certaines conditions.",
+    "Dans l'exécution intégrée, l'exécution s'arrête lorsque l'utilisateur clique sur 'Annuler' dans la boîte de saisie.",
+    "L’installation initiale vous permet désormais de configurer l’autocomplétion, le mode d’exécution, la langue des messages (arabe/français) et le mode sombre."
+  ]
 }

@@ -1,3 +1,5 @@
+import re
+
 class RealTimeStream:
     """Custom stream that sends output in real-time to a QTextEdit widget."""
     def __init__(self, text_widget):
@@ -17,7 +19,7 @@ class RealTimeStream:
         pass
         
 class FrenchAlgorithmCompiler:
-    def __init__(self):
+    def __init__(self, max_steps=None):
         # Make type mappings more flexible with lowercase keys - Added boolean and char types
         self.type_mapping = {
             "entier": "int",
@@ -37,9 +39,13 @@ class FrenchAlgorithmCompiler:
         
         # Add logical operator translations
         self.logical_operators = {
+            " mod ": " % ",
+            " div ": " // ",
             " et ": " and ",
             " ou ": " or ",
-            " non ": " not "
+            " non ": " not ",
+            "non(": "not(",  # Handle the case without space
+            "non (": "not ("  # Handle the case with space
         }
         
         # Add comparison operator translations
@@ -49,7 +55,14 @@ class FrenchAlgorithmCompiler:
         }
         
         # Maximum execution steps to prevent infinite loops
-        self.max_execution_steps = 1000
+        if max_steps is not None:
+            self.max_execution_steps = max_steps
+        else:
+            # Try to get from settings
+            from PyQt5.QtCore import QSettings
+            settings = QSettings("AlgoFX", "AlgoFX")
+            self.max_execution_steps = settings.value("algorithm_execution_steps", 1000, type=int)
+        
         
         self.indentation_level = 0
         self.current_variables = {}
@@ -131,6 +144,19 @@ class FrenchAlgorithmCompiler:
     def translate_logical_operators(self, condition):
         """Translate French logical operators to Python equivalents"""
         result = condition
+        
+        # First handle the "non" operator specially when inside parentheses
+        if "non (" in result.lower():
+            result = result.replace("non (", "not (")
+            result = result.replace("Non (", "not (")
+            result = result.replace("NON (", "not (")
+        
+        # Then handle the regular "non" operator when it's a standalone word
+        result = result.replace(" non ", " not ")
+        result = result.replace(" Non ", " not ")
+        result = result.replace(" NON ", " not ")
+        
+        # Handle other logical operators
         for fr_op, py_op in self.logical_operators.items():
             # Handle case insensitivity in all forms: lowercase, uppercase, title case
             result = result.replace(fr_op.lower(), py_op)
@@ -226,8 +252,8 @@ class FrenchAlgorithmCompiler:
         if ' mod ' in line_lower:
             line = line.replace(line[line_lower.find(' mod '):line_lower.find(' mod ')+5], ' % ')
         
-        if ' power ' in line_lower:
-            line = line.replace(line[line_lower.find(' power '):line_lower.find(' power ')+7], ' ** ')
+        if ' puissance ' in line_lower:
+            line = line.replace(line[line_lower.find(' puissance '):line_lower.find(' puissance ')+11], ' ** ')
             
         # Handle square root function - find all instances case-insensitively
         racine_variants = ['racine(', 'RACINE(', 'Racine(']
@@ -353,9 +379,11 @@ class FrenchAlgorithmCompiler:
                     curr_line = lines[j].strip().lower()  # Convert to lowercase for comparison
                     if curr_line.startswith("si ") and " alors" in curr_line:
                         nesting_level += 1
-                    elif curr_line == "finsi":
+                    # Improved to check if the line contains finsi rather than exact match
+                    elif "finsi" in curr_line:
                         nesting_level -= 1
-                    elif curr_line == "sinon" and nesting_level == 1:
+                    # Improved to check if the line contains sinon rather than exact match
+                    elif "sinon" in curr_line and nesting_level == 1:
                         # Only break at "sinon" if we're at the same nesting level
                         break
                     j += 1
@@ -365,7 +393,7 @@ class FrenchAlgorithmCompiler:
                 python_code.extend(self.parse_instructions(if_block))
                 
                 # Check for else block - case insensitive
-                if j < len(lines) and lines[j].strip().lower() == "sinon":
+                if j < len(lines) and "sinon" in lines[j].strip().lower():
                     self.indentation_level -= 1
                     python_code.append(' ' * 4 * self.indentation_level + "else:")
                     self.indentation_level += 1
@@ -376,16 +404,18 @@ class FrenchAlgorithmCompiler:
                         curr_line = lines[k].strip().lower()  # Convert to lowercase for comparison
                         if curr_line.startswith("si ") and " alors" in curr_line:
                             nesting_level += 1
-                        elif curr_line == "finsi":
+                        # Improved to check if the line contains finsi rather than exact match
+                        elif "finsi" in curr_line:
                             nesting_level -= 1
                         k += 1
                     
                     else_block = '\n'.join(lines[j+1:k-1])  # -1 to exclude the finsi
                     python_code.extend(self.parse_instructions(else_block))
-                    j = k - 1
+                    i = k  # Update i to continue after the else block
+                else:
+                    i = j  # Update i to continue after the if block
                 
                 self.indentation_level -= 1
-                i = j + 1
                 continue
             
             # While loop - now fully case insensitive
@@ -418,7 +448,8 @@ class FrenchAlgorithmCompiler:
                     curr_line = lines[j].strip().lower()  # Convert to lowercase for comparison
                     if curr_line.startswith("tantque ") and " faire" in curr_line:
                         nesting_level += 1
-                    elif curr_line == "fintantque":
+                    # Improved to check if the line contains fintantque rather than exact match
+                    elif "fintantque" in curr_line:
                         nesting_level -= 1
                     j += 1
                     
@@ -530,7 +561,8 @@ class FrenchAlgorithmCompiler:
                     curr_line = lines[j].strip().lower()  # Convert to lowercase for comparison
                     if curr_line.startswith("pour ") and " faire" in curr_line:
                         nesting_level += 1
-                    elif curr_line == "finpour":
+                    # Improved to check if the line contains finpour rather than exact match
+                    elif "finpour" in curr_line:
                         nesting_level -= 1
                     j += 1
                     
@@ -549,7 +581,7 @@ class FrenchAlgorithmCompiler:
             i += 1
             
         return python_code
-    
+        
     def compile_to_python(self, french_code):
         """Convert French algorithm to Python code"""
         # Extract main sections - case insensitive
@@ -568,25 +600,19 @@ class FrenchAlgorithmCompiler:
         algo_header = french_code
         var_index = -1
         
-        # Check for 'Var' or 'var' to determine where algorithm name ends - case insensitive
-        var_keyword = None
-        for var_keyword_option in ['Var', 'VAR', 'var']:
-            if var_keyword_option in french_code:
-                var_index = french_code.find(var_keyword_option)
-                var_keyword = var_keyword_option
-                break
-                
+        # Find the var keyword position - truly case insensitive
+        var_match = re.search(r'\bvar\b', french_code_lower)
+        if var_match:
+            var_index = var_match.start()
+            var_keyword = french_code[var_match.start():var_match.end()]
+                    
         if var_index != -1:
             algo_header = french_code[:var_index]
             
         # Find algorithm keyword and extract name - case insensitive
-        algo_keyword = None
-        for algo_keyword_option in ['Algorithme', 'ALGORITHME', 'algorithme']:
-            if algo_keyword_option in algo_header:
-                algo_keyword = algo_keyword_option
-                break
-                
-        if algo_keyword:
+        algo_match = re.search(r'\balgorithme\b', algo_header.lower())
+        if algo_match:
+            algo_keyword = algo_header[algo_match.start():algo_match.end()]
             algo_name_part = algo_header.split(algo_keyword, 1)[1]
             if ';' in algo_name_part:
                 algorithm_name = algo_name_part.split(';', 1)[0].strip()
@@ -594,37 +620,35 @@ class FrenchAlgorithmCompiler:
                 algorithm_name = algo_name_part.strip()
         
         # Extract variable section - case insensitive
-        debut_keyword = None
-        for debut_keyword_option in ['Debut', 'DEBUT', 'debut']:
-            if debut_keyword_option in french_code:
-                debut_keyword = debut_keyword_option
-                break
-                
+        debut_match = re.search(r'\bdebut\b', french_code_lower)
+        var_match = re.search(r'\bvar\b', french_code_lower)
+        
         var_start = -1
         debut_start = -1
         
-        if var_keyword and var_keyword in french_code:
-            var_start = french_code.find(var_keyword) + len(var_keyword)
-        if debut_keyword and debut_keyword in french_code:
-            debut_start = french_code.find(debut_keyword)
+        if var_match:
+            var_start = var_match.end()
+            var_keyword = french_code[var_match.start():var_match.end()]
+        
+        if debut_match:
+            debut_start = debut_match.start()
+            debut_keyword = french_code[debut_match.start():debut_match.end()]
             
         if var_start != -1 and debut_start != -1:
             var_section = french_code[var_start:debut_start]
             
         # Extract instruction section - case insensitive
-        fin_keyword = None
-        for fin_keyword_option in ['Fin', 'FIN', 'fin']:
-            if fin_keyword_option in french_code:
-                fin_keyword = fin_keyword_option
-                break
-                
+        fin_match = re.search(r'\bfin\b', french_code_lower)
+        
         debut_end = -1
         fin_start = -1
         
-        if debut_keyword and debut_keyword in french_code:
-            debut_end = french_code.find(debut_keyword) + len(debut_keyword)
-        if fin_keyword and fin_keyword in french_code:
-            fin_start = french_code.find(fin_keyword)
+        if debut_match:
+            debut_end = debut_match.end()
+        
+        if fin_match:
+            fin_start = fin_match.start()
+            fin_keyword = french_code[fin_match.start():fin_match.end()]
             
         if debut_end != -1 and fin_start != -1:
             instruction_section = french_code[debut_end:fin_start]
@@ -684,7 +708,6 @@ class FrenchAlgorithmCompiler:
         python_code.extend(self.parse_instructions(instruction_section))
                 
         return '\n'.join(python_code)
-    
     
     def execute(self, python_code):
         """Execute the generated Python code and return output"""
@@ -821,6 +844,15 @@ class FrenchAlgorithmCompiler:
             __builtins__["input"] = original_input
         
         return result
+        
+    def update_max_execution_steps(self, steps=None):
+        """Update the maximum execution steps, either with provided value or from settings"""
+        if steps is not None:
+            self.max_execution_steps = steps
+        else:
+            from PyQt5.QtCore import QSettings
+            settings = QSettings("AlgoFX", "AlgoFX")
+            self.max_execution_steps = settings.value("algorithm_execution_steps", 1000, type=int)
 
 # Patching function for the application
 def patch_real_time_execution():

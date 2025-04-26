@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QAction, QMenu, QMessageBox
 from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtCore import QUrl
+from PyQt5.QtCore import QUrl, Qt
 import requests
 import json
 
@@ -250,17 +250,34 @@ class MenuManager:
                 version_data = json.loads(response.text)
                 latest_version = version_data.get("version")
                 download_url = version_data.get("download_url")
+                release_notes = version_data.get("notes", "Pas de notes de mise à jour disponibles.")
+                
+                # Formater les notes de version selon le type reçu (chaîne ou liste)
+                if isinstance(release_notes, list):
+                    formatted_notes = "• " + "\n• ".join(release_notes)
+                else:
+                    # Si c'est une chaîne, on remplace les virgules par des sauts de ligne avec puces
+                    formatted_notes = "• " + release_notes.replace(", ", "\n• ")
                 
                 # Comparer les versions (simplement par comparaison de chaînes)
                 if latest_version and current_version < latest_version:
-                    # Afficher une boîte de dialogue pour informer l'utilisateur
+                    # Créer la boîte de dialogue pour informer l'utilisateur
                     msg_box = QMessageBox(self.parent)
                     msg_box.setWindowTitle("Mise à jour disponible")
-                    msg_box.setText(f"Une nouvelle version ({latest_version}) est disponible. Votre version actuelle est {current_version}.")
-                    msg_box.setInformativeText("Voulez-vous télécharger la mise à jour ?")
+                    msg_box.setText(f"Une nouvelle version ({latest_version}) est disponible.\nVotre version actuelle est {current_version}.")
+                    
+                    # Préparer le texte informatif avec les notes de version
+                    info_text = f"Nouveautés dans cette version:\n\n{formatted_notes}\n\nVoulez-vous télécharger la mise à jour ?"
+                    msg_box.setInformativeText(info_text)
                     msg_box.setIcon(QMessageBox.Information)
                     msg_box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
                     msg_box.setDefaultButton(QMessageBox.Yes)
+                    
+                    # Ajuster la taille de la boîte de dialogue pour afficher plus de texte
+                    msg_box.setMinimumWidth(500)
+                    
+                    # Rendre la boîte de dialogue redimensionnable pour de longues listes de notes
+                    msg_box.setTextInteractionFlags(Qt.TextSelectableByMouse)
                     
                     # Si l'utilisateur clique sur Oui, ouvrir l'URL de téléchargement
                     if msg_box.exec_() == QMessageBox.Yes and download_url:
@@ -268,8 +285,8 @@ class MenuManager:
                 else:
                     # Informer l'utilisateur qu'il possède déjà la dernière version
                     QMessageBox.information(self.parent, "Mise à jour", 
-                                          "Vous possédez déjà la dernière version de l'application.",
-                                          QMessageBox.Ok)
+                                            "Vous possédez déjà la dernière version de l'application.",
+                                            QMessageBox.Ok)
             else:
                 # Gérer les erreurs HTTP
                 QMessageBox.warning(self.parent, "Erreur de vérification", 

@@ -1,4 +1,4 @@
-from PyQt5.QtGui import QSyntaxHighlighter, QTextCharFormat, QColor, QFont
+from PyQt5.QtGui import QSyntaxHighlighter, QTextCharFormat, QColor, QFont, QTextCursor
 from PyQt5.QtCore import QRegExp
 
 class SyntaxHighlighter(QSyntaxHighlighter):
@@ -17,11 +17,46 @@ class SyntaxHighlighter(QSyntaxHighlighter):
         keyword_format.setFontWeight(QFont.Bold)
         
         keywords = [
-            r'\bAlgorithme\b', r'\bVar\b', r'\bvar\b', r'\ballant\b', r'\bpas\b', r'\bSortir\b', r'\bDebut\b', r'\bFin\b', 
-            r'\bsi\b', r'\balors\b', r'\bsinon\b', r'\bfinsi\b', r'\bTantque\b', r'\bFintantque\b',
-            r'\btantque\b', r'\bfaire\b', r'\bfintantque\b', r'\bFinpour\b', r'\bPour\b',
-            r'\bpour\b', r'\bde\b', r'\ba\b', r'\bfinpour\b', r'\bLire\b', r'\bEcrire\b',
-            r'\bEntier\b', r'\bReel\b', r'\bRéel\b', r'\bChaine de caractere\b',r'\bConst\b'
+            # Algorithm declarations
+            r'\bAlgorithme\b', r'\balgorithme\b',
+
+            # Variable declarations
+            r'\bVar\b', r'\bvar\b', r'\bConst\b', r'\bconst\b',
+
+            # Data types
+            r'\bEntier\b', r'\bentier\b',
+            r'\bReel\b', r'\breel\b', r'\bRéel\b', r'\bréel\b',
+            r'\bChaine\b', r'\bchaine\b', 
+            r'\bChaine de caractere\b', r'\bchaine de caractere\b',
+            r'\bChaine de caracteres\b', r'\bchaine de caracteres\b',
+            r'\bCaracteres\b', r'\bcaracteres\b',
+            r'\bBooleen\b', r'\bbooleen\b',
+            
+            # Input/Output
+            r'\bLire\b', r'\blire\b',
+            r'\bEcrire\b', r'\bécrire\b', r'\becrire\b',
+
+            # Control structures
+            r'\bSi\b', r'\bsi\b',
+            r'\bAlors\b', r'\balors\b',
+            r'\bSinon\b', r'\bsinon\b',
+            r'\bFinsi\b', r'\bfinsi\b', r'\bFinSi\b', r'\bfinSi\b',
+
+            r'\bPour\b', r'\bpour\b',
+            r'\bde\b', r'\bà\b', r'\ba\b',  # loop range
+            r'\bFaire\b', r'\bfaire\b',
+            r'\bFinpour\b', r'\bfinpour\b', r'\bFinPour\b',
+
+            r'\bTantque\b', r'\btantque\b',
+            r'\bFintantque\b', r'\bfintantque\b', r'\bFinTantQue\b',
+
+            # Logical flow
+            r'\bDebut\b', r'\bdebut\b',
+            r'\bFin\b', r'\bfin\b',
+
+            # Misc
+            r'\ballant\b', r'\bpas\b',
+            r'\bSortir\b', r'\bsortir\b',
         ]
         
         for keyword in keywords:
@@ -74,3 +109,19 @@ class SyntaxHighlighter(QSyntaxHighlighter):
                 length = expression.matchedLength()
                 self.setFormat(index, length, format)
                 index = expression.indexIn(text, index + length)
+                
+    def setDocument(self, document):
+        """Override setDocument to allow enabling/disabling the highlighter"""
+        # Store current document to clear formatting if needed
+        current_doc = self.document()
+        
+        # Set the new document
+        super().setDocument(document)
+        
+        # If we're disabling (document is None), clear formatting on the old document
+        if not document and current_doc:
+            # Instead of creating a new highlighter, clear formatting directly
+            cursor = QTextCursor(current_doc)
+            cursor.select(QTextCursor.Document)
+            format = QTextCharFormat()
+            cursor.setCharFormat(format)
