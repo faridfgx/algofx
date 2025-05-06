@@ -131,7 +131,7 @@ Fin</pre>
     <pre>
 var
     age: entier;
-    nom: chaine;
+    nom: chaine de caractere;
     a, b, c: entier;  // Déclaration multiple
     estValide: booleen;</pre>
     
@@ -196,9 +196,9 @@ const
             <th>Exemple</th>
         </tr>
         <tr>
-            <td>==</td>
+            <td>=</td>
             <td>Égal à</td>
-            <td>a == b</td>
+            <td>a = b</td>
         </tr>
         <tr>
             <td>&lt;&gt; ou !=</td>
@@ -242,12 +242,12 @@ const
         <tr>
             <td>ou</td>
             <td>OU logique</td>
-            <td>(a == 0) ou (b == 0)</td>
+            <td>(a = 0) ou (b = 0)</td>
         </tr>
         <tr>
             <td>non</td>
             <td>NON logique</td>
-            <td>non(a == b)</td>
+            <td>non(a = b)</td>
         </tr>
     </table>
 
@@ -375,7 +375,7 @@ Debut
         copie &lt;- copie div 10;
     fintantque
     
-    si nombre == inverse alors
+    si nombre = inverse alors
         ecrire(nombre, "est un palindrome");
     sinon
         ecrire(nombre, "n'est pas un palindrome");
@@ -398,13 +398,13 @@ Debut
     
     lire(choix);
     
-    si choix == 1 alors
+    si choix = 1 alors
         ecrire("Entrez la température en Celsius:");
         lire(celsius);
         fahrenheit &lt;- (celsius * 9/5) + 32;
         ecrire(celsius, "°C équivaut à", fahrenheit, "°F");
     sinon
-        si choix == 2 alors
+        si choix = 2 alors
             ecrire("Entrez la température en Fahrenheit:");
             lire(fahrenheit);
             celsius &lt;- (fahrenheit - 32) * 5/9;
@@ -466,13 +466,13 @@ debut
         
         pour j de 2 a i-1 faire
             temp &lt;- i mod j;
-            si temp == 0 alors
+            si temp = 0 alors
                 estPremier &lt;- faux;
                 sortir;
             finsi
         finpour
         
-        si estPremier == vrai alors
+        si estPremier = vrai alors
             ecrire(i);
         finsi
     finpour
