@@ -148,13 +148,13 @@
         <i class="fab fa-windows"></i>
     </div>
     <h3>Windows (32/64-bit) – Versions 7, 8, 8.1, 10, 11</h3>
-    <p><strong>Installer:</strong> Installation complète – Version V1.3.1</p>
-    <a href="https://www.mediafire.com/file/3xml7i6s18sxpb8/AlgoFX1_3_1.exe/file" class="btn btn-download">
+    <p><strong>Installer:</strong> Installation complète – Version V1.4.0</p>
+    <a href="https://www.mediafire.com/file/6jjp4tu9vbmqlp1/AlgoFX140fix54setup.exe/file" class="btn btn-download">
         <i class="fas fa-download"></i> Télécharger (.exe)
     </a>
     <div class="system-req">
         <p><i class="fas fa-microchip"></i> Compatible: Windows 7 à 11</p>
-        <p><i class="fas fa-memory"></i> RAM: Minimum 2 Go</p>
+        <p><i class="fas fa-memory"></i> RAM: Minimum 1 Go</p>
     </div>
 </div>
 
@@ -163,13 +163,13 @@
         <i class="fab fa-windows"></i>
     </div>
     <h3>Windows (32/64-bit) – Versions 7, 8, 8.1, 10, 11</h3>
-    <p><strong>Archive ZIP:</strong> Version portable – V1.3.1</p>
-    <a href="https://www.mediafire.com/file/77k1iql76yiyiay/AlgoFX1_3_1.zip/file" class="btn btn-download">
+    <p><strong>Archive ZIP:</strong> Version portable – V1.4.0</p>
+    <a href="https://www.mediafire.com/file/5oxnbel8ilwyzpt/AlgoFX140.zip/file" class="btn btn-download">
         <i class="fas fa-download"></i> Télécharger (.zip)
     </a>
     <div class="system-req">
         <p><i class="fas fa-microchip"></i> Compatible: Windows 7 à 11</p>
-        <p><i class="fas fa-memory"></i> RAM: Minimum 2 Go</p>
+        <p><i class="fas fa-memory"></i> RAM: Minimum 1 Go</p>
     </div>
 </div>
                     
@@ -265,143 +265,9 @@
     </script>
 	<script>
 		// Function to create and show the modal
-function showPythonInstallationMessage() {
-  // Create overlay
-  const overlay = document.createElement('div');
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-  overlay.style.display = 'flex';
-  overlay.style.justifyContent = 'center';
-  overlay.style.alignItems = 'center';
-  overlay.style.zIndex = '2000';
-  
-  // Create modal container
-  const modal = document.createElement('div');
-  modal.style.backgroundColor = '#fff';
-  modal.style.borderRadius = '8px';
-  modal.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
-  modal.style.width = '90%';
-  modal.style.maxWidth = '600px';
-  modal.style.padding = '30px';
-  modal.style.position = 'relative';
-  
-  // Create modal content
-  const title = document.createElement('h3');
-  title.textContent = 'Installation requise pour la console AlgoFX';
-  title.style.color = '#007ACC';
-  title.style.marginBottom = '15px';
-  
-  const message = document.createElement('p');
-  message.innerHTML = '<strong>Important :</strong> Pour utiliser les fonctionnalités de console dans AlgoFX, vous devez installer Python sur votre système avant d\'installer AlgoFX.';
-  message.style.marginBottom = '15px';
-  
-  const requirementMsg = document.createElement('p');
-  requirementMsg.innerHTML = '<strong>Il est OBLIGATOIRE de sélectionner l\'option "Add Python to PATH"</strong> pendant l\'installation de Python, comme indiqué sur l\'image ci-dessous :';
-  requirementMsg.style.marginBottom = '20px';
-  
-  // Create image container 
-  const imgContainer = document.createElement('div');
-  imgContainer.style.textAlign = 'center';
-  imgContainer.style.marginBottom = '20px';
-  
-  // Create image
-  const img = document.createElement('img');
-  img.src = 'imgs/path.jpg'; // Adjust this path to where your image is located
-  img.alt = 'Python PATH configuration';
-  img.style.maxWidth = '100%';
-  img.style.borderRadius = '4px';
-  img.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
-  
-  imgContainer.appendChild(img);
-  
-  // Create additional instruction
-  const instruction = document.createElement('p');
-  instruction.innerHTML = 'Sans cette option, la fonctionnalité de console dans AlgoFX ne fonctionnera pas correctement.';
-  instruction.style.marginBottom = '10px';
-  instruction.style.color = '#dc3545';
-  instruction.style.fontWeight = '500';
-  
-  // Create download link
-  const downloadLink = document.createElement('p');
-  downloadLink.innerHTML = 'Téléchargez Python depuis : <a href="https://www.python.org/downloads/" target="_blank">www.python.org/downloads</a>';
-  downloadLink.style.marginBottom = '20px';
-  
-  // Create button
-  const button = document.createElement('button');
-  button.textContent = 'J\'ai compris';
-  button.style.backgroundColor = '#007ACC';
-  button.style.color = '#fff';
-  button.style.border = 'none';
-  button.style.borderRadius = '4px';
-  button.style.padding = '12px 24px';
-  button.style.cursor = 'pointer';
-  button.style.fontWeight = '600';
-  button.style.display = 'block';
-  button.style.margin = '0 auto';
-  button.style.transition = 'background-color 0.3s ease';
-  
-  button.onmouseover = function() {
-    this.style.backgroundColor = '#005a99';
-  };
-  
-  button.onmouseout = function() {
-    this.style.backgroundColor = '#007ACC';
-  };
-  
-  // Append elements to modal
-  modal.appendChild(title);
-  modal.appendChild(message);
-  modal.appendChild(requirementMsg);
-  modal.appendChild(imgContainer);
-  modal.appendChild(instruction);
-  modal.appendChild(downloadLink);
-  modal.appendChild(button);
-  
-  // Append modal to overlay
-  overlay.appendChild(modal);
-  
-  // Append overlay to body
-  document.body.appendChild(overlay);
-  
-  // Return both elements for later removal
-  return { overlay, button };
-}
 
-// Function to add click handlers to all download links
-function setupDownloadLinks() {
-  // Get all download links - targeting both "télécharger" buttons and GitHub link
-  const downloadLinks = document.querySelectorAll('.btn-download, .btn-github');
-  
-  downloadLinks.forEach(link => {
-    if (!link.closest('.disabled')) { // Skip disabled download buttons
-      const originalHref = link.getAttribute('href');
-      
-      // Replace the original href with a JavaScript call
-      link.setAttribute('href', 'javascript:void(0)');
-      
-      // Add click event listener
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Show the modal
-        const { overlay, button } = showPythonInstallationMessage();
-        
-        // Add click event to button
-        button.addEventListener('click', function() {
-          // Remove the overlay when button is clicked
-          document.body.removeChild(overlay);
-          
-          // Navigate to the original link
-          window.open(originalHref, '_blank');
-        });
-      });
-    }
-  });
-}
+
+
 
 // Run when DOM is loaded
 document.addEventListener('DOMContentLoaded', setupDownloadLinks);
