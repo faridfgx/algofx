@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AlgoFX - IDE pour l'apprentissage des algorithmes en français. Interface intuitive, syntaxe française, compilation Python.">
+    <meta name="keywords" content="algorithme, programmation, éducation, français, IDE, Python">
+    <title>AlgoFX - IDE pour Algorithmes en Français</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="imgs/fxlogo.png" alt="AlgoFX" class="logo">
+                    <span class="brand-name">AlgoFX</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#download">Télécharger</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="guide.html">Documentation</a></li>
+                </ul>
+                
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="version-badge">
+                            <i class="fas fa-code"></i>
+                            <span>Version 1.4.0 disponible</span>
+                        </div>
+                        
+                        <h1>Apprenez l'algorithmique <span class="highlight">en français</span></h1>
+                        
+                        <p class="hero-description">
+                            Un environnement de développement intégré conçu spécialement pour 
+                            l'apprentissage et l'enseignement des concepts algorithmiques fondamentaux.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="number">1000+</span>
+                                <span class="label">Utilisateurs</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">19+</span>
+                                <span class="label">Modèles</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">100%</span>
+                                <span class="label">Gratuit</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <a href="#download" class="btn btn-primary">
+                                <i class="fas fa-download"></i>
+                                Télécharger maintenant
+                            </a>
+                            <a href="#demo" class="btn btn-secondary">
+                                <i class="fas fa-play"></i>
+                                Voir la démo
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="hero-image">
+                            <img src="imgs/main.jpg" alt="Interface AlgoFX">
+                            <div class="code-overlay">
+                                <div class="code-header">
+                                    <div class="window-controls">
+                                        <span class="control red"></span>
+                                        <span class="control yellow"></span>
+                                        <span class="control green"></span>
+                                    </div>
+                                    <span class="filename">bonjeur.algo</span>
+                                </div>
+                                <div class="code-content">
+								    <div class="line"><span class="number">1</span>Algorithme Bonjeur</div>
+                                    <div class="line"><span class="number">1</span>Debut</div>
+                                    <div class="line"><span class="number">2</span>&nbsp;&nbsp;Ecrire("Bonjour AlgoFX!")</div>
+                                    <div class="line"><span class="number">3</span>Fin</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Introduction Section -->
+<section class="introduction">
+    <div class="container">
+        <div class="intro-grid">
+            <div class="intro-content">
+                <h2>Pourquoi choisir AlgoFX ?</h2>
+                <p>
+                    AlgoFX révolutionne l'apprentissage de l'algorithmique en proposant 
+                    une approche pédagogique innovante basée sur la langue française.
+                </p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Syntaxe intuitive en français</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Interface moderne et ergonomique</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check"></i>
+                        <span>Compilation automatique en Python</span>
+                    </div>
+                </div>
+                <a href="#features" class="btn btn-outline">Découvrir les fonctionnalités</a>
+            </div>
+            <div class="intro-media">
+                <!-- Video container -->
+                <video controls width="100%" height="auto">
+                    <source src="imgs/demo.mp4" type="video/mp4">
+                    Votre navigateur ne prend pas en charge la vidéo.
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fonctionnalités principales</h2>
+                    <p>Découvrez tous les outils qui rendent AlgoFX unique</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card featured">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Syntaxe française</h3>
+                        <p>
+                            Écrivez vos algorithmes en utilisant des mots-clés français naturels. 
+                            Fini les barrières linguistiques !
+                        </p>
+                        <div class="code-example">
+                            <code>Si (age >= 18) Alors<br>  Ecrire("Majeur");<br>Sinon<br>  Ecrire("Mineur");<br>FinSi</code>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Éditeur avancé</h3>
+                        <p>
+                            Coloration syntaxique, auto-complétion, détection d'erreurs en temps réel 
+                            et numérotation des lignes.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Compilation Python</h3>
+                        <p>
+                            Visualisez automatiquement la conversion de vos algorithmes 
+                            en code Python exécutable.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-templates"></i>
+                        </div>
+                        <h3>Bibliothèque de modèles</h3>
+                        <p>
+                            Plus de 19 modèles prêts à l'emploi : tri, recherche, calculs, 
+                            conversions et bien plus.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Thèmes personnalisables</h3>
+                        <p>
+                            Mode sombre, mode clair et thèmes colorés pour s'adapter 
+                            à vos préférences.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Performance optimisée</h3>
+                        <p>
+                            Interface rapide et réactive, même sur les configurations modestes. 
+                            Démarrage instantané.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Télécharger AlgoFX</h2>
+                    <p>Choisissez la version qui correspond à votre système</p>
+                    <div class="version-info">Version actuelle : 1.4.0</div>
+                </div>
+                
+                <div class="download-options">
+                    <div class="download-card primary">
+                        <div class="card-header">
+                            <i class="fab fa-windows"></i>
+                            <div>
+                                <h3>Windows Installer</h3>
+                                <p>Installation complète avec assistant</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Compatible Windows 7-11</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Architecture 32/64-bit</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Installation automatique</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-size">
+                            <i class="fas fa-hdd"></i>
+                            <span>Taille : ~70 MB</span>
+                        </div>
+                        
+                        <a href="https://www.mediafire.com/file/6jjp4tu9vbmqlp1/AlgoFX140fix54setup.exe/file" 
+                           class="btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Télécharger (.exe)
+                        </a>
+                    </div>
+                    
+                    <div class="download-card">
+                        <div class="card-header">
+                            <i class="fas fa-file-archive"></i>
+                            <div>
+                                <h3>Version portable</h3>
+                                <p>Archive ZIP sans installation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card-features">
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Aucune installation requise</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Portable sur clé USB</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check"></i>
+                                <span>Décompression simple</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-size">
+                            <i class="fas fa-hdd"></i>
+                            <span>Taille : ~70 MB</span>
+                        </div>
+                        
+                        <a href="https://www.mediafire.com/file/5oxnbel8ilwyzpt/AlgoFX140.zip/file" 
+                           class="btn btn-download">
+                            <i class="fas fa-download"></i>
+                            Télécharger (.zip)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="download-info">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Configuration requise</h4>
+                            <ul>
+                                <li><i class="fas fa-desktop"></i> Windows 7 ou plus récent</li>
+                                <li><i class="fas fa-memory"></i> 1 Go de RAM minimum</li>
+                                <li><i class="fas fa-hdd"></i> 100 Mo d'espace disque</li>
+                                <li><i class="fas fa-display"></i> Résolution 800x600 minimum</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>Code source</h4>
+                            <p>AlgoFX est open source et disponible sur GitHub</p>
+                            <a href="https://github.com/faridfgx/algofx" class="btn btn-github">
+                                <i class="fab fa-github"></i>
+                                Voir sur GitHub
+                            </a>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>Aide et support</h4>
+                            <p>Besoin d'aide ? Consultez notre documentation complète</p>
+                            <a href="guide.html" class="btn btn-outline">
+                                <i class="fas fa-book"></i>
+                                Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Découvrez l'interface</h2>
+                    <p>Une sélection de captures d'écran pour vous donner un aperçu d'AlgoFX</p>
+                </div>
+                
+                <div class="gallery-tabs">
+                    <button class="tab-btn active" data-tab="interface">Interface</button>
+                    <button class="tab-btn" data-tab="editor">Éditeur</button>
+                    <button class="tab-btn" data-tab="templates">Modèles</button>
+                    <button class="tab-btn" data-tab="settings">Paramètres</button>
+                </div>
+                
+                <div class="gallery-content">
+                    <div class="tab-panel active" data-panel="interface">
+                        <div class="gallery-grid">
+                            <div class="gallery-item featured">
+                                <img src="imgs/main.jpg" alt="Interface principale d'AlgoFX">
+                                <div class="item-caption">
+                                    <h3>Interface principale</h3>
+                                    <p>Vue d'ensemble de l'environnement de développement</p>
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-item">
+                                <img src="imgs/input.jpg" alt="Saisie de données simplifiée">
+                                <div class="item-caption">
+                                    <h3>Saisie de données</h3>
+                                    <p>Interface intuitive pour l'entrée des données</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" data-panel="editor">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="imgs/guide.jpg" alt="Guide des algorithmes">
+                                <div class="item-caption">
+                                    <h3>Guide intégré</h3>
+                                    <p>Documentation complète des algorithmes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" data-panel="templates">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="imgs/temps.jpg" alt="Modèles d'algorithmes">
+                                <div class="item-caption">
+                                    <h3>Bibliothèque de modèles</h3>
+                                    <p>Plus de 19 modèles prêts à utiliser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" data-panel="settings">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="imgs/settings.jpg" alt="Paramètres de l'application">
+                                <div class="item-caption">
+                                    <h3>Paramètres avancés</h3>
+                                    <p>Personnalisez AlgoFX selon vos besoins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>À propos d'AlgoFX</h2>
+                        <p>
+                            AlgoFX a été créé avec une vision simple : rendre l'apprentissage 
+                            de l'algorithmique accessible à tous les francophones. En utilisant 
+                            une syntaxe en français, nous éliminons les barrières linguistiques 
+                            qui peuvent freiner l'apprentissage.
+                        </p>
+                        <p>
+                            Que vous soyez étudiant, enseignant, ou simplement curieux de découvrir 
+                            le monde de la programmation, AlgoFX vous accompagne dans votre parcours 
+                            d'apprentissage avec des outils modernes et intuitifs.
+                        </p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">2025</div>
+                                <div class="stat-label">Année de création</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1000+</div>
+                                <div class="stat-label">Utilisateurs actifs</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">19+</div>
+                                <div class="stat-label">Modèles disponibles</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-timeline">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Conception</h4>
+                                    <p>Développement de la syntaxe française</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Première version</h4>
+                                    <p>Lancement d'AlgoFX 1.0</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Évolution</h4>
+                                    <p>Ajout des modèles et de l'interface moderne</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item active">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Version actuelle</h4>
+                                    <p>AlgoFX 1.4.0 avec toutes les fonctionnalités</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Questions fréquentes</h2>
+                    <p>Trouvez rapidement les réponses à vos questions</p>
+                </div>
+                
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>
+                            <span>AlgoFX est-il vraiment gratuit ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Oui, AlgoFX est entièrement gratuit et open source. Vous pouvez le télécharger, l'utiliser et même contribuer à son développement sans aucun coût.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>
+                            <span>Puis-je utiliser AlgoFX pour l'enseignement ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Absolument ! AlgoFX a été conçu spécialement pour l'enseignement. Sa syntaxe française et ses modèles intégrés en font un outil idéal pour les professeurs et les étudiants.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>
+                            <span>Les algorithmes peuvent-ils être exportés en Python ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>Oui, AlgoFX compile automatiquement vos algorithmes en code Python. Vous pouvez visualiser et copier le code généré pour l'utiliser dans d'autres environnements.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>
+                            <span>Quelle configuration est nécessaire ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>AlgoFX fonctionne sur Windows 7 et versions ultérieures, avec seulement 1 Go de RAM et 50 Mo d'espace disque. Il est optimisé pour fonctionner même sur des configurations modestes.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h2>Restez informé</h2>
+                        <p>Recevez les dernières nouvelles et mises à jour d'AlgoFX directement dans votre boîte mail.</p>
+                    </div>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Votre adresse e-mail" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                S'abonner
+                            </button>
+                        </div>
+                        <p class="privacy-note">
+                            <i class="fas fa-shield-alt"></i>
+                            Nous respectons votre vie privée. Pas de spam.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="imgs/fxlogo.png" alt="AlgoFX Logo">
+                    <h3>AlgoFX</h3>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#download">Télécharger</a></li>
+                        <li><a href="#gallery">Galerie</a></li>
+                        <li><a href="guide.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i>faridmezane@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://github.com/faridfgx"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farid Mezane AlgoFX - Un IDE pour l'apprentissage des algorithmes</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Gallery tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.dataset.tab;
+                
+                // Remove active class from all tabs and panels
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding panel
+                button.classList.add('active');
+                document.querySelector(`[data-panel="${tab}"]`).classList.add('active');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('toggle', () => {
+                const icon = item.querySelector('i');
+                if (item.open) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
